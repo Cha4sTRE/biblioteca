@@ -1,0 +1,10 @@
+services:
+  biblioteca_db:
+    container_name: biblioteca_db
+    image: postgres
+    ports:
+      - "5333:5432"
+    environment:
+      - POSTGRES_USERNAME=postgres
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=biblioteca
