@@ -9,6 +9,6 @@ import org.mapstruct.factory.Mappers;
 public interface CategoriaMapper {
 
     CategoriaMapper INSTANCE = Mappers.getMapper(CategoriaMapper.class);
-    //CategoriaDto toCategoriaDto(CategoriaEntity categoriaEntity);
+    CategoriaDto toCategoriaDto(CategoriaEntity categoriaEntity);
 
 }

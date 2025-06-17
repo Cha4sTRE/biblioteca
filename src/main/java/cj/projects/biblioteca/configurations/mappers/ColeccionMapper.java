@@ -9,6 +9,6 @@ import org.mapstruct.factory.Mappers;
 public interface ColeccionMapper {
 
     ColeccionMapper INSTANCE = Mappers.getMapper(ColeccionMapper.class);
-    //ColeccionDto toColeccionDto(ColeccionEntity coleccionEntity);
+    ColeccionDto toColeccionDto(ColeccionEntity coleccionEntity);
 
 }

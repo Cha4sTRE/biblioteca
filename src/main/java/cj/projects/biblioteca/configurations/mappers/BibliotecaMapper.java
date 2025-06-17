@@ -9,6 +9,6 @@ import org.mapstruct.factory.Mappers;
 public interface BibliotecaMapper {
 
     BibliotecaMapper INSTANCE= Mappers.getMapper(BibliotecaMapper.class);
-    //BibliotecaDto toBibliotecaDto(BibliotecaEntity bibliotecaEntity);
+    BibliotecaDto toBibliotecaDto(BibliotecaEntity bibliotecaEntity);
 
 }
