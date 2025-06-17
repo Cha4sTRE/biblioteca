@@ -13,7 +13,6 @@ public class BibliotecaDto {
     private String direccion;
     private long telefono;
     private String email;
-    private int anio;
 
     private Set<LibroEntity> libros=new HashSet<>();
 

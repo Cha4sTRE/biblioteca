@@ -11,9 +11,6 @@ public interface LibroMapper {
 
     LibroMapper INSTANCE = Mappers.getMapper(LibroMapper.class);
 
-    @Mapping(target = "categoria", source = "libroEntity.categoria.nombre")
-    @Mapping(target = "coleccion", source = "libroEntity.coleccion.nombre")
-    @Mapping(target = "biblioteca", source = "libroEntity.biblioteca.nombre")
     LibroDto toLibroDto (LibroEntity libroEntity);
 
 }

@@ -17,7 +17,7 @@ import java.util.List;
 @Service
 public class EmpleadoDetailsServiceImpl implements UserDetailsService {
 
-    private EmpleadoRepository empleadoRepository;
+    private final EmpleadoRepository empleadoRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

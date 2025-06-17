@@ -23,8 +23,6 @@ public class BibliotecaEntity {
     private String direccion;
     private long telefono;
     private String email;
-    @Column(name = "año")
-    private int anio;
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "biblioteca")
     private Set<LibroEntity> libros=new HashSet<>();

@@ -8,16 +8,17 @@ import cj.projects.biblioteca.persistence.repositories.EmpleadoRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Component;
 
 import java.util.Set;
-
+@Component
 public class CommandInit {
 
     @Bean
     public CommandLineRunner init(PasswordEncoder passwordEncoder, EmpleadoRepository empleadoRepository) {
         return args -> {
 
-            PermissionEntity createPermission = PermissionEntity.builder().name("CREATED").build();
+            PermissionEntity createPermission = PermissionEntity.builder().name("CREATE").build();
             PermissionEntity readPermission = PermissionEntity.builder().name("READ").build();
             PermissionEntity updatePermission = PermissionEntity.builder().name("UPDATE").build();
             PermissionEntity deletePermission = PermissionEntity.builder().name("DELETE").build();
@@ -28,7 +29,7 @@ public class CommandInit {
                     .build();
 
             EmpleadoEntity empleado1 = EmpleadoEntity.builder()
-                    .username("jefferson")
+                    .username("jeffer")
                     .email("chaustrejefferson@gmail.com")
                     .telefono(3166846822l)
                     .password(passwordEncoder.encode("milluh123"))

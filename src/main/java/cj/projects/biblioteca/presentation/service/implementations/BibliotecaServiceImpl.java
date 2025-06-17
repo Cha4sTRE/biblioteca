@@ -24,7 +24,7 @@ public class BibliotecaServiceImpl implements BibliotecaService {
 
     @Override
     public BibliotecaDto getById(long id) {
-        return BibliotecaMapper.INSTANCE.toBibliotecaDto(bibliotecaRepository.findById(id));
+        return BibliotecaMapper.INSTANCE.toBibliotecaDto(bibliotecaRepository.findById(id).orElse(null));
     }
 
     @Override
