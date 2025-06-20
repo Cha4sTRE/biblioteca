@@ -14,20 +14,20 @@ import java.util.Optional;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("api/v1/biblioteca")
+@RequestMapping("/api/v1/biblioteca")
 public class BibliotecaController {
 
     private final BibliotecaService bibliotecaService;
 
     @GetMapping("/lista")
     @PreAuthorize("hasAuthority('READ')")
-    public ResponseEntity<List<BibliotecaDto>> bibliotecas() {
+    public ResponseEntity<List<BibliotecaDto>> getAll() {
         List<BibliotecaDto> bibliotecas= bibliotecaService.list();
         return ResponseEntity.ok(bibliotecas);
     }
     @GetMapping("/buscar/{id}")
     @PreAuthorize("hasAuthority('READ')")
-    public ResponseEntity<BibliotecaDto> biblioteca(@PathVariable Long id) {
+    public ResponseEntity<BibliotecaDto> findById(@PathVariable Long id) {
         Optional<BibliotecaDto> bibliotecaOption= Optional.ofNullable(bibliotecaService.getById(id));
         if(!bibliotecaOption.isPresent()){
             return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
@@ -49,7 +49,7 @@ public class BibliotecaController {
         bibliotecaService.save(biblioteca);
         return ResponseEntity.ok().build();
     }
-    @DeleteMapping
+    @DeleteMapping("/eliminar/{id}")
     @PreAuthorize("hasAuthority('DELETE')")
     public ResponseEntity eliminar(@PathVariable Long id){
         bibliotecaService.delete(id);

@@ -3,7 +3,9 @@ package cj.projects.biblioteca.persistence.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @NoArgsConstructor
@@ -25,6 +27,6 @@ public class BibliotecaEntity {
     private String email;
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "biblioteca")
-    private Set<LibroEntity> libros=new HashSet<>();
+    private List<LibroEntity> libros=new ArrayList<>();
 
 }

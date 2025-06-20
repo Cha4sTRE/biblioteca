@@ -18,7 +18,8 @@ public class BibliotecaServiceImpl implements BibliotecaService {
     @Override
     public List<BibliotecaDto> list() {
         List<BibliotecaEntity> bibliotecaEntities = bibliotecaRepository.findAll();
-        List<BibliotecaDto> bibliotecaDtos = bibliotecaEntities.stream().map(BibliotecaMapper.INSTANCE::toBibliotecaDto).collect(Collectors.toList());
+        List<BibliotecaDto> bibliotecaDtos = bibliotecaEntities.stream()
+                .map(BibliotecaMapper.INSTANCE::toBibliotecaDto).collect(Collectors.toList());
         return bibliotecaDtos;
     }
 

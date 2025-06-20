@@ -4,7 +4,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDate;
+import java.math.BigInteger;
+
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -24,9 +25,11 @@ public class LibroEntity {
     private String autor;
     private String isbn;
     private String editorial;
+    private Integer cantidad;
+    private BigInteger precio;
 
     @Column(name = "fecha_publicacion")
-    private LocalDate fechaPublicacion;
+    private String fechaPublicacion;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "categoria_id")

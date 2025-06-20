@@ -1,10 +1,10 @@
 package cj.projects.biblioteca.presentation.dtos;
 
-import cj.projects.biblioteca.persistence.entities.LibroEntity;
 import lombok.Data;
 
-import java.util.HashSet;
-import java.util.Set;
+
+import java.util.List;
+
 
 @Data
 public class BibliotecaDto {
@@ -14,6 +14,6 @@ public class BibliotecaDto {
     private long telefono;
     private String email;
 
-    private Set<LibroEntity> libros=new HashSet<>();
+    private List<String> libros;
 
 }

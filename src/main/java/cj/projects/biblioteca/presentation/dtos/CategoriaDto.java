@@ -11,6 +11,5 @@ public class CategoriaDto {
     private String nombre;
     private String descripcion;
 
-    private List<LibroDto> libros=new ArrayList<>();
 
 }

@@ -10,7 +10,9 @@ import org.mapstruct.factory.Mappers;
 public interface LibroMapper {
 
     LibroMapper INSTANCE = Mappers.getMapper(LibroMapper.class);
-
+    @Mapping(target = "categoria", source = "categoria.nombre")
+    @Mapping(target = "coleccion", source = "coleccion.nombre")
+    @Mapping(target = "biblioteca", source = "biblioteca.nombre")
     LibroDto toLibroDto (LibroEntity libroEntity);
 
 }
