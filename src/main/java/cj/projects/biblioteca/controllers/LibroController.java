@@ -4,6 +4,7 @@ import cj.projects.biblioteca.persistence.entities.LibroEntity;
 import cj.projects.biblioteca.presentation.dtos.LibroDto;
 import cj.projects.biblioteca.presentation.service.LibroService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -21,8 +22,8 @@ public class LibroController {
 
     @GetMapping("/lista")
     @PreAuthorize("hasAuthority('READ')")
-    public ResponseEntity<List<LibroDto>> getAll(){
-        List<LibroDto> libros= libroService.findAll();
+    public ResponseEntity<Page<LibroDto>> getAll(@RequestParam(name = "page",defaultValue = "0") int page) {
+        Page<LibroDto> libros= libroService.findAll(page);
         return new ResponseEntity<>(libros, HttpStatus.OK);
     }
 

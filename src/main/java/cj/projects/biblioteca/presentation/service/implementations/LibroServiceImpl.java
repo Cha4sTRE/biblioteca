@@ -6,20 +6,23 @@ import cj.projects.biblioteca.persistence.repositories.LibroRepository;
 import cj.projects.biblioteca.presentation.dtos.LibroDto;
 import cj.projects.biblioteca.presentation.service.LibroService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
 public class LibroServiceImpl implements LibroService {
-    private final LibroRepository libroRepository;
-    @Override
-    public List<LibroDto> findAll() {
 
-        List<LibroEntity> libros = libroRepository.findAll();
-        return libros.stream().map(LibroMapper.INSTANCE::toLibroDto).collect(Collectors.toList());
+    private final LibroRepository libroRepository;
+
+    @Override
+    public Page<LibroDto> findAll(int page) {
+
+        Page<LibroEntity> pages= libroRepository.findAll(PageRequest.of(page, 5));
+        Page<LibroDto> pagesDtos= pages.map(LibroMapper.INSTANCE::toLibroDto);
+        return pagesDtos;
 
     }
 

@@ -3,9 +3,14 @@ spring:
     name: biblioteca
 
   datasource:
-    username: postgres
-    password: 1234
-    url: jdbc:postgresql://localhost:5333/biblioteca
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
+    url: ${DATABASE_URL}
+
+    #username: postgres
+    #password: 1234
+    #url: jdbc:postgresql://localhost:5433/biblioteca
+
     driver-class-name: org.postgresql.Driver
 
   jpa:

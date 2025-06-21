@@ -1,10 +1,28 @@
 services:
+  app:
+    container_name: biblioteca_api
+    build: .
+    ports:
+      - "8080:8080"
+    networks:
+      - biblioteca_contentainer
+    environment:
+      - DATABASE_URL=jdbc:postgresql://biblioteca_db:5432/biblioteca
+      - DATABASE_USERNAME=postgres
+      - DATABASE_PASSWORD=1234
+    depends_on:
+      - biblioteca_db
+
   biblioteca_db:
     container_name: biblioteca_db
     image: postgres
     ports:
-      - "5333:5432"
+      - "5433:5432"
+    networks:
+      - biblioteca_contentainer
     environment:
       - POSTGRES_USERNAME=postgres
       - POSTGRES_PASSWORD=1234
       - POSTGRES_DB=biblioteca
+networks:
+  biblioteca_contentainer:
