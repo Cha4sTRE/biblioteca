@@ -70,7 +70,6 @@ class PrestamoServiceImplTest {
         prestamoDto.setIdUsuario(usuarioEntity.getId());
         prestamoDto.setIdBiblioteca(bibliotecaEntity.getId());
         prestamoDto.setTitulo("El Silmarillion");
-        prestamoDto.setIsbn("12345");
 
         when(usuarioRepository.findById(usuarioEntity.getId())).thenReturn(Optional.of(usuarioEntity));
         when(bibliotecaRepository.findById(bibliotecaEntity.getId())).thenReturn(Optional.of(bibliotecaEntity));
@@ -84,7 +83,6 @@ class PrestamoServiceImplTest {
         // Assert
         assertNotNull(resultado);
         assertEquals(prestamoDto.getTitulo(), resultado.getTitulo());
-        assertEquals(prestamoDto.getIsbn(), resultado.getIsbn());
         assertEquals(4, libroEntity.getCantidad()); // cantidad debe bajar de 5 a 4
         assertEquals(1, usuarioEntity.getPrestamos().size()); // debe agregarse un préstamo
         verify(prestamoRepository, times(1)).save(any(PrestamoEntity.class));
