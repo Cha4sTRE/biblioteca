@@ -1,6 +1,5 @@
 package cj.projects.biblioteca.presentation.dtos;
 
-import cj.projects.biblioteca.persistence.entities.PrestamoEntity;
 import lombok.Data;
 
 import java.util.ArrayList;

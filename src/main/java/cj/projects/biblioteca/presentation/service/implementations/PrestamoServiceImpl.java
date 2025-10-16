@@ -13,7 +13,6 @@ import cj.projects.biblioteca.presentation.service.PrestamoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -31,7 +30,6 @@ public class PrestamoServiceImpl implements PrestamoService {
         PrestamoEntity prestamo= PrestamoEntity.builder()
                 .usuario(usuario)
                 .titulo(prestamoDto.getTitulo())
-                .isbn(prestamoDto.getIsbn())
                 .build();
         usuario.getPrestamos().add(prestamo);
         libro.setCantidad(libro.getCantidad()-1);
