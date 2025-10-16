@@ -7,5 +7,4 @@ public class PrestamoDto {
     Long idUsuario;
     Long idBiblioteca;
     String titulo;
-    String isbn;
 }
