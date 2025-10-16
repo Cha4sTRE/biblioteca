@@ -1,4 +1,4 @@
-## 🧪 Comparativo: Pruebas Manuales vs Automatizadas
+## Comparativo: Pruebas Manuales vs Automatizadas
 
 En este ejercicio se desarrolló una prueba automatizada para el método `addPrestamo()` del servicio de préstamos de una biblioteca.  
 El propósito fue comparar el esfuerzo y tiempo que implicaría validar este mismo comportamiento de forma **manual** frente a hacerlo **automatizadamente**.
@@ -71,5 +71,8 @@ Antes de ejecutar el proyecto, asegúrate de tener instaladas las siguientes her
 ```bash
 git clone https://github.com/<tu-usuario>/<nombre-del-repositorio>.git
 cd <nombre-del-repositorio>
-
-
+```
+----
+Equipo:
+- Wilmer Gelvez
+- Jefferson chaustre
