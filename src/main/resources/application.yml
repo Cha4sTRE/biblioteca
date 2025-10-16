@@ -3,13 +3,10 @@ spring:
     name: biblioteca
 
   datasource:
-    username: ${DATABASE_USERNAME}
-    password: ${DATABASE_PASSWORD}
-    url: ${DATABASE_URL}
 
-    #username: postgres
-    #password: 1234
-    #url: jdbc:postgresql://localhost:5433/biblioteca
+    username: jeffer
+    password:
+    url: jdbc:postgresql://localhost:5432/biblioteca
 
     driver-class-name: org.postgresql.Driver
 
@@ -19,4 +16,4 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
