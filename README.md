@@ -3,7 +3,7 @@
 En este ejercicio se desarrolló una prueba automatizada para el método `addPrestamo()` del servicio de préstamos de una biblioteca.  
 El propósito fue comparar el esfuerzo y tiempo que implicaría validar este mismo comportamiento de forma **manual** frente a hacerlo **automatizadamente**.
 
-### 🧍‍♂️ Pruebas Manuales
+### Pruebas Manuales
 
 En un escenario de pruebas manuales, un desarrollador o tester tendría que:
 
