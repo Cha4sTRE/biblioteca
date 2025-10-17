@@ -14,7 +14,9 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 @Service
 public class BibliotecaServiceImpl implements BibliotecaService {
+
     private final BibliotecaRepository bibliotecaRepository;
+
     @Override
     public List<BibliotecaDto> list() {
         List<BibliotecaEntity> bibliotecaEntities = bibliotecaRepository.findAll();
