@@ -15,6 +15,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -65,6 +66,14 @@ class BibliotecaServiceImplTest {
 
     @Test
     void getById() {
+
+
+        when(bibliotecaRepository.findById(1L)).thenReturn(Optional.of(bibliotecaEntity));
+
+        BibliotecaDto result= bibliotecaServiceImpl.getById(1L);
+        assertNotNull(result);
+        assertEquals(bibliotecaDto,result);
+
     }
 
     @Test
