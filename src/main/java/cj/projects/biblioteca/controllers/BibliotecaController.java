@@ -25,6 +25,7 @@ public class BibliotecaController {
         List<BibliotecaDto> bibliotecas= bibliotecaService.list();
         return ResponseEntity.ok(bibliotecas);
     }
+
     @GetMapping("/buscar/{id}")
     @PreAuthorize("hasAuthority('READ')")
     public ResponseEntity<BibliotecaDto> findById(@PathVariable Long id) {
