@@ -52,7 +52,7 @@ class BibliotecaServiceImplTest {
     }
 
     @Test
-    void list() {
+    void testList() {
 
         List<BibliotecaDto> listTest= List.of(bibliotecaDto);
         List<BibliotecaEntity> bibliotecaEntities = List.of(bibliotecaEntity);
@@ -66,7 +66,7 @@ class BibliotecaServiceImplTest {
     }
 
     @Test
-    void getById() {
+    void testGetById() {
 
 
         when(bibliotecaRepository.findById(1L)).thenReturn(Optional.of(bibliotecaEntity));
@@ -78,7 +78,7 @@ class BibliotecaServiceImplTest {
     }
 
     @Test
-    void save() {
+    void testSave() {
 
         when(bibliotecaRepository.save(any(BibliotecaEntity.class))).thenReturn(bibliotecaEntity);
         bibliotecaServiceImpl.save(bibliotecaEntity);
@@ -86,5 +86,10 @@ class BibliotecaServiceImplTest {
 
 
     }
-
+    @Test
+    void testUpdate(){
+        when(bibliotecaRepository.save(any(BibliotecaEntity.class))).thenReturn(bibliotecaEntity);
+        bibliotecaServiceImpl.save(bibliotecaEntity);
+        verify(bibliotecaRepository).save(any(BibliotecaEntity.class));
+    }
 }
