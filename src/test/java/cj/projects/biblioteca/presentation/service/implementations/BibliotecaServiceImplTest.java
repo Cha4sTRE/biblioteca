@@ -87,11 +87,4 @@ class BibliotecaServiceImplTest {
 
     }
 
-    @Test
-    void update() {
-    }
-
-    @Test
-    void delete() {
-    }
 }
