@@ -92,4 +92,9 @@ class BibliotecaServiceImplTest {
         bibliotecaServiceImpl.save(bibliotecaEntity);
         verify(bibliotecaRepository).save(any(BibliotecaEntity.class));
     }
+    @Test
+    void testDelete() {
+        bibliotecaServiceImpl.delete(1L);
+        verify(bibliotecaRepository).deleteById(1L);
+    }
 }
