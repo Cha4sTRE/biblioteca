@@ -88,12 +88,14 @@ class BibliotecaServiceImplTest {
     }
     @Test
     void testUpdate(){
+        //test actualizar
         when(bibliotecaRepository.save(any(BibliotecaEntity.class))).thenReturn(bibliotecaEntity);
         bibliotecaServiceImpl.save(bibliotecaEntity);
         verify(bibliotecaRepository).save(any(BibliotecaEntity.class));
     }
     @Test
     void testDelete() {
+        //test borrar
         bibliotecaServiceImpl.delete(1L);
         verify(bibliotecaRepository).deleteById(1L);
     }
