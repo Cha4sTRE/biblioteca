@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main',
+                git branch: 'master',
                     url: 'https://github.com/Cha4sTRE/biblioteca.git',
                     credentialsId: 'cd-token' // tu ID de credenciales
             }
