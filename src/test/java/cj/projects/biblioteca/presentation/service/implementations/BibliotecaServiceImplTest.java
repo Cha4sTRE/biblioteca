@@ -90,13 +90,11 @@ class BibliotecaServiceImplTest {
     void testUpdate(){
         when(bibliotecaRepository.save(any(BibliotecaEntity.class))).thenReturn(bibliotecaEntity);
         bibliotecaServiceImpl.save(bibliotecaEntity);
-        //verifica que el repositoria guarde una entidad
         verify(bibliotecaRepository).save(any(BibliotecaEntity.class));
     }
     @Test
     void testDelete() {
         bibliotecaServiceImpl.delete(1L);
-        //verifica el repositorio elimine la entidad
         verify(bibliotecaRepository).deleteById(1L);
     }
 }
