@@ -1,6 +1,5 @@
 package cj.projects.biblioteca.presentation.service.implementations;
 
-import cj.projects.biblioteca.configurations.mappers.BibliotecaMapper;
 import cj.projects.biblioteca.persistence.entities.BibliotecaEntity;
 import cj.projects.biblioteca.persistence.entities.LibroEntity;
 import cj.projects.biblioteca.persistence.repositories.BibliotecaRepository;
@@ -52,7 +51,7 @@ class BibliotecaServiceImplTest {
     }
 
     @Test
-    void list() {
+    void testList() {
 
         List<BibliotecaDto> listTest= List.of(bibliotecaDto);
         List<BibliotecaEntity> bibliotecaEntities = List.of(bibliotecaEntity);
@@ -66,7 +65,7 @@ class BibliotecaServiceImplTest {
     }
 
     @Test
-    void getById() {
+    void testGetById() {
 
 
         when(bibliotecaRepository.findById(1L)).thenReturn(Optional.of(bibliotecaEntity));
@@ -78,7 +77,7 @@ class BibliotecaServiceImplTest {
     }
 
     @Test
-    void save() {
+    void testSave() {
 
         when(bibliotecaRepository.save(any(BibliotecaEntity.class))).thenReturn(bibliotecaEntity);
         bibliotecaServiceImpl.save(bibliotecaEntity);
@@ -86,12 +85,12 @@ class BibliotecaServiceImplTest {
 
 
     }
-
     @Test
-    void update() {
+    void testUpdate(){
+
     }
-
     @Test
-    void delete() {
+    void testDelete() {
+
     }
 }

@@ -65,7 +65,7 @@ class PrestamoServiceImplTest {
 
     @Test
     void addPrestamo() {
-        // Arrange
+
         PrestamoDto prestamoDto = new PrestamoDto();
         prestamoDto.setIdUsuario(usuarioEntity.getId());
         prestamoDto.setIdBiblioteca(bibliotecaEntity.getId());
@@ -77,10 +77,10 @@ class PrestamoServiceImplTest {
         when(prestamoRepository.save(any(PrestamoEntity.class)))
                 .thenAnswer(invocation -> invocation.getArgument(0)); // simula el guardado
 
-        // Act
+
         PrestamoDto resultado = prestamoService.addPrestamo(prestamoDto);
 
-        // Assert
+
         assertNotNull(resultado);
         assertEquals(prestamoDto.getTitulo(), resultado.getTitulo());
         assertEquals(4, libroEntity.getCantidad()); // cantidad debe bajar de 5 a 4
