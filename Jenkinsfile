@@ -5,16 +5,6 @@ pipeline {
             IMAGE_TAG = "latest"
         }
     stages {
-        stage('Build and Deploy') {
-            when {
-                branch 'master'  // Solo ejecutar si el build viene de la rama main
-            }
-            steps {
-                sh './gradlew clean build'
-                sh 'docker compose down || true'
-                sh 'docker compose up -d --build'
-            }
-        }
 
         stage('Checkout') {
             steps {
@@ -36,7 +26,7 @@ pipeline {
          stage('Tag Docker image') {
             steps {
                 echo "Tagging image..."
-                sh "docker tag ${IMAGE_NAME}:build-${BUILD_NUMBER} ${IMAGE_NAME}:${IMAGE_TAG}"
+                sh "docker tag ${IMAGE_NAME}:${IMAGE_TAG}"
             }
         }
          stage('Push to DockerHub') {
