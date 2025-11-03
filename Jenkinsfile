@@ -5,6 +5,16 @@ pipeline {
             IMAGE_TAG = "latest"
         }
     stages {
+        stage('Build and Deploy') {
+            when {
+                branch 'master'  // Solo ejecutar si el build viene de la rama main
+            }
+            steps {
+                sh './gradlew clean build'
+                sh 'docker compose down || true'
+                sh 'docker compose up -d --build'
+            }
+        }
 
         stage('Checkout') {
             steps {
