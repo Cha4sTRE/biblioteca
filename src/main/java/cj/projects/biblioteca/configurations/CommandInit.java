@@ -14,7 +14,7 @@ import java.util.Set;
 @Component
 public class CommandInit {
 
-    //@Bean
+    @Bean
     public CommandLineRunner init(PasswordEncoder passwordEncoder, EmpleadoRepository empleadoRepository) {
         return args -> {
 
