@@ -26,7 +26,7 @@ pipeline {
          stage('Tag Docker image') {
             steps {
                 echo "Tagging image..."
-                sh "docker tag ${IMAGE_NAME}:${IMAGE_TAG}"
+                sh "docker tag ${IMAGE_NAME}:${IMAGE_TAG} ${IMAGE_NAME}"
             }
         }
          stage('Push to DockerHub') {
