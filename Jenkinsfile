@@ -35,8 +35,8 @@ pipeline {
 
          stage('Tag Docker image') {
             steps {
-                echo "Tagging image as ${TAG}..."
-                sh "docker tag ${IMAGE_NAME}:build-${BUILD_NUMBER} ${IMAGE_NAME}:${TAG}"
+                echo "Tagging image..."
+                sh "docker tag ${IMAGE_NAME}:build-${BUILD_NUMBER} ${IMAGE_NAME}:${IMAGE_TAG}"
             }
         }
          stage('Push to DockerHub') {
@@ -48,7 +48,7 @@ pipeline {
                     passwordVariable: 'DOCKER_PASS'
                 )]) {
                     sh "echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin"
-                    sh "docker push ${IMAGE_NAME}:${TAG}"
+                    sh "docker push ${IMAGE_NAME}:${IMAGE_TAG}"
                 }
             }
         }
