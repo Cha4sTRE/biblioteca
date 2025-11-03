@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-            IMAGE_NAME = "j3ffr/biblioteca"  // cambia por tu usuario/repositorio DockerHub
+            IMAGE_NAME = "j3ffer/biblioteca"  // cambia por tu usuario/repositorio DockerHub
             IMAGE_TAG = "latest"
         }
     stages {
