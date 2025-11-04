@@ -42,22 +42,22 @@ public class LibroController {
 
     @PostMapping("/agregar")
     @PreAuthorize("hasAuthority('CREATE')")
-    public ResponseEntity agregar(@RequestBody LibroEntity libro){
+    public ResponseEntity<String> agregar(@RequestBody LibroEntity libro){
         libroService.save(libro);
-        return ResponseEntity.ok().build();
+        return new ResponseEntity<>("Libro agregado com exito", HttpStatus.OK);
     }
 
     @PutMapping("/actualizar/{id}")
     @PreAuthorize("hasAuthority('UPDATE')")
-    public ResponseEntity actualizar(@RequestBody LibroEntity libro, @PathVariable long id){
+    public ResponseEntity<String> actualizar(@RequestBody LibroEntity libro, @PathVariable long id){
         libroService.update(libro, id);
-        return ResponseEntity.ok().build();
+        return new ResponseEntity<>("Libro actualizado com exito", HttpStatus.OK);
     }
 
     @DeleteMapping("/eliminar/{id}")
-    public ResponseEntity eliminar(@PathVariable long id){
+    public ResponseEntity<String> eliminar(@PathVariable long id){
         libroService.delete(id);
-        return new ResponseEntity(HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>("Libro eliminado com exito", HttpStatus.OK);
     }
 
 }
