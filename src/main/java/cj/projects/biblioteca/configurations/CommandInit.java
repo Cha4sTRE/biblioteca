@@ -6,7 +6,6 @@ import cj.projects.biblioteca.persistence.entities.RolEntity;
 import cj.projects.biblioteca.persistence.entities.Roles;
 import cj.projects.biblioteca.persistence.repositories.EmpleadoRepository;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
@@ -14,7 +13,7 @@ import java.util.Set;
 @Component
 public class CommandInit {
 
-    @Bean
+    //@Bean
     public CommandLineRunner init(PasswordEncoder passwordEncoder, EmpleadoRepository empleadoRepository) {
         return args -> {
 
