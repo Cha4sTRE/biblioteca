@@ -4,7 +4,7 @@ spring:
 
   datasource:
 
-    username: ${DATABASE_USERNAME:jeffer}
+    username: ${DATABASE_USERNAME:jefferson}
     password: ${DATABASE_PASSWORD:' '}
     url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/biblioteca}
     driver-class-name: org.postgresql.Driver
@@ -15,3 +15,5 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
