@@ -7,32 +7,27 @@ pipeline {
     }
 
     stages {
-
         stage('Checkout') {
             steps {
                 checkout scm
             }
         }
-
         stage('Build app') {
             steps {
                 sh './gradlew clean build'
             }
         }
-
         stage('Build Docker image') {
             steps {
                 sh "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ."
             }
         }
-
         stage('Tag Docker image') {
             steps {
                 echo "Tagging image..."
                 sh "docker tag ${IMAGE_NAME}:${IMAGE_TAG} ${IMAGE_NAME}"
             }
         }
-
         stage('Push to DockerHub') {
             steps {
                 echo "Pushing Docker image to DockerHub..."
