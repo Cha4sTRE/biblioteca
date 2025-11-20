@@ -20,26 +20,6 @@ pipeline {
             }
         }
 
-        stage('SonarQube Analysis') {
-            environment {
-                scannerHome = tool 'SonarScanner' // nombre configurado en Global Tool Configuration
-            }
-            steps {
-                withSonarQubeEnv('SonarQubeServer') { // nombre configurado en Configure System
-                    sh '''${scannerHome}/bin/sonar-scanner \
-                        -Dsonar.projectKey=biblioteca \
-                        -Dsonar.projectName=biblioteca \
-                        -Dsonar.projectVersion=1.0 \
-                        -Dsonar.sources=src/main/java \
-                        -Dsonar.tests=src/test \
-                        -Dsonar.coverage.jacoco.xmlReportPaths=./build/reports/jacoco/test/jacocoTestReport.xml \
-                        -Dsonar.java.binaries=build/classes \
-                        -Dsonar.host.url=$SONAR_HOST_URL \
-                        -Dsonar.login=$SONAR_AUTH_TOKEN'''
-                }
-            }
-        }
-
         stage('Build Docker image') {
             steps {
                 sh "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ."
